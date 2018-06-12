@@ -33,9 +33,11 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
+			<?php mouad_put_menu(); ?>
+
 			<ul class="navbar-nav mr-auto"></ul>
 
-			<?php mouad_put_menu(); ?>
+
 
 		</div>
 	</div>

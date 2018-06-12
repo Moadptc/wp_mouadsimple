@@ -80,7 +80,7 @@ function mouad_put_menu()
 	wp_nav_menu(
 		array(
 			'theme_location' => 'bt4-menu',
-			'menu_class' => 'navbar-nav ml-auto',
+			'menu_class' => 'navbar-nav',
 			'menu_id'        => 'primary-menu',
 			'container'      => false,
 			'depth'          => 2,
