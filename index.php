@@ -1,76 +1,72 @@
 <?php get_header() ?>
 
-	<div class="jumbotron text-center">
-		<h1 class="display-4">Hello, world!</h1>
-		<p class="lead">
-			This is a simple hero unit, a simple jumbotron-style
-			component for calling extra attention to featured
-			content or information.It uses utility classes for
-			typography and spacing to space content out
-		</p>
+	<div class="row blog">
+		<div class="col-md-8">
+			<div class="card no-raduis main-articles">
 
-		<a class="btn btn-primary btn-lg mt-3 no-raduis" href="#" role="button">
-			Get Started
-		</a>
-	</div>
+				<?php if(have_posts()): ?>
+					<?php while(have_posts()):  the_post(); ?>
 
-	<div class="card pb-4 mb-4">
-		<div class="card-body">
-			<h3>Home</h3>
-			welcome to home page this is area forr static text.
+						<article class="card-body article">
+							<h3 class="font-weight-bold"><?php the_title() ?></h3>
+							<p class="bg-primary p-2 meta text-white my-3">
+								Posted at <?php the_time('F j, Y g:i a') ?>
+								By
+								<a class="link-author"
+								   href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ) ?>">
+									<?php the_author() ?>
+								</a> |
+								Posted In
+								<?php
+								$categories = get_the_category();
+								$separator = ", ";
+								$output = '';
+
+								if($categories){
+									foreach($categories as $category){
+										$output .= '<a class="text-white font-weight-bold" 
+										href="'.get_category_link($category->term_id).'">'
+										           .$category->cat_name.'</a>'. $separator;
+									}
+								}
+
+								echo trim($output, $separator);
+								?>
+
+							</p>
+
+							<?php the_excerpt() ?>
+
+							<a href="<?php the_permalink() ?>" class="btn btn-primary no-raduis">
+								Read More
+							</a>
+
+							<div class="article-border"></div>
+						</article><!--  one article -->
+
+					<?php endwhile; ?>
+				<?php else: ?>
+					<?php echo wpautop('Sorry, no posts were found') ?>
+				<?php endif; ?>
+
+
+			</div>  <!--  main articles tag -->
 		</div>
-	</div>
 
-	<div class="row home">
 		<div class="col-md-4">
-			<div class="card mb-3 no-raduis">
-				<div class="card-header text-white bg-primary no-raduis">
-					Box 1 Heading
-				</div>
+			<div class="card no-raduis sidebar-blog">
 				<div class="card-body">
-					<p class="card-text text-dark">
-						Some quick example text to build on the card
-						title and make up the bulk of the card's content.
+					<h3>Sidebar title</h3>
+					<div class="border mb-3 mt-2"></div>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						Dolore et ipsum laboriosam omnis quidem saepe sunt voluptas?
+						Alias dicta illum nihil quasi. Adipisci consequuntur dolore,
+						nisi quam repellendus voluptatibus. Eius labore necessitatibus odio
+						quasi soluta. Cum cumque deserunt dolorem facere necessitatibus
+						quibusdam tenetur unde veritatis!
 					</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card mb-3 no-raduis">
-				<div class="card-header text-white bg-primary no-raduis">
-					Box 2 Heading
-				</div>
-				<div class="card-body">
-					<p class="card-text text-dark">
-						Some quick example text to build on the card
-						title and make up the bulk of the card's content.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card mb-3 no-raduis">
-				<div class="card-header text-white bg-primary no-raduis">
-					Latest news
-				</div>
-				<div class="card-body">
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">
-							<a href="#">Gallery post</a>
-						</li>
-						<li class="list-group-item">
-							<a href="#">Gallery post</a>
-						</li>
-						<li class="list-group-item">
-							<a href="#">Gallery post</a>
-						</li>
-						<li class="list-group-item">
-							<a href="#">Gallery post</a>
-						</li>
-						<li class="list-group-item">
-							<a href="#">Gallery post</a>
-						</li>
-					</ul>
+					<a href="#">Read More</a>
 				</div>
 			</div>
 		</div>

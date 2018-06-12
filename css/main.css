@@ -1,3 +1,11 @@
+/*
+	Theme Name: Mouad Simple
+	Author: Mouad Moad
+	Author URI: http://mouad.com
+	Description: this is a simple theme (blog)
+	Version: 1.0
+*/
+
 body
 {
     overflow-x: hidden;
@@ -34,6 +42,12 @@ body
     letter-spacing: 0.3px;
 }
 
+.main-title a:hover
+{
+    color: #333333;
+    text-decoration: none;
+}
+
 header.border-t
 {
     border-bottom: 4px solid #007bff;
@@ -49,7 +63,7 @@ header.border-t
 /*-------------- end header ------------------------*/
 
 
-/*--------------- index page -------------------------*/
+/*--------------- page  -------------------------*/
 
 .jumbotron
 {
@@ -72,9 +86,40 @@ header.border-t
     padding: 10px 0;
 }
 
-/*--------------- end index page -------------------------*/
 
 
+/*--------------- end  page -------------------------*/
+
+/*------------- index page -----------------------------*/
+
+.blog .main-articles
+{
+    background: #fafafa;
+}
+
+.blog .main-articles .article-border
+{
+    border: 1px solid #dddddd;
+    margin: 27px 0;
+}
+
+.blog .main-articles article:last-child
+{
+    border: none;
+}
+
+.blog .sidebar-blog
+{
+    background: #fafafa;
+}
+
+.blog .main-articles .article .link-author
+{
+    color: #fafafa;
+    font-weight: bold;
+}
+
+/*------------- end index page -----------------------------*/
 
 
 

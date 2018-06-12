@@ -21,17 +21,20 @@
 		<div class="row">
 			<div class="col-md-6">
 				<h1 class="main-title text-primary d-inline font-weight-bold">
-					WordpressDev
+					<a href="<?php bloginfo('url') ?>">
+						<?php bloginfo('name') ?>
+					</a>
 				</h1>
 				<span class="fs-13 ml-2">
-				just another wordpress theme
+				<?php bloginfo('description') ?>
 			</span>
 			</div>
 
 			<div class="col-md-6">
-				<form class="float-right w-60">
+				<form class="float-right w-60" method="get"
+                      action="<?php esc_url(home_url('/')) ?>">
 					<input type="text" class="form-control search-input"
-						  id="inlineFormInputName2" placeholder="Search">
+						  id="inlineFormInputName2" name="s" placeholder="Search">
 				</form>
 			</div>
 		</div>
@@ -41,9 +44,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark mb-5 bg-dark">
 	<div class="container">
-		<a class="navbar-brand" href="<?php bloginfo('url') ?>">
-			<?php bloginfo('name') ?>
-		</a>
 		<button class="navbar-toggler" type="button"
 		        data-toggle="collapse" data-target="#navbarSupportedContent"
 		        aria-controls="navbarSupportedContent" aria-expanded="false"

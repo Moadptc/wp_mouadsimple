@@ -70,7 +70,8 @@ function mouad_register_costum_menu()
 {
 	register_nav_menus(
 		array(
-			'bt4-menu' => 'Navigation Bar'
+			'bt4-menu' => 'Navigation Bar',
+			'footer-menu' => 'Footer Menu'
 		)
 	);
 }
@@ -93,5 +94,19 @@ function mouad_put_menu()
 
 add_action('init','mouad_register_costum_menu');
 
+
+function set_excerpt_length()
+{
+	return 25;
+}
+
+function mouad_excerpt_change_dots($more)
+{
+	return ' ...';
+}
+
+
+add_filter('excerpt_more','mouad_excerpt_change_dots');
+add_filter('excerpt_length','set_excerpt_length');
 
 
