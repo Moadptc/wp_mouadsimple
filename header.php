@@ -16,10 +16,30 @@
 </head>
 <body>
 
+<header class="bg-light py-2 border-t">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h1 class="main-title text-primary d-inline font-weight-bold">
+					WordpressDev
+				</h1>
+				<span class="fs-13 ml-2">
+				just another wordpress theme
+			</span>
+			</div>
+
+			<div class="col-md-6">
+				<form class="float-right w-60">
+					<input type="text" class="form-control search-input"
+						  id="inlineFormInputName2" placeholder="Search">
+				</form>
+			</div>
+		</div>
+	</div>
+</header>
 
 
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark mb-5 bg-dark">
 	<div class="container">
 		<a class="navbar-brand" href="<?php bloginfo('url') ?>">
 			<?php bloginfo('name') ?>
@@ -42,3 +62,6 @@
 		</div>
 	</div>
 </nav>
+
+
+<div class="container">
