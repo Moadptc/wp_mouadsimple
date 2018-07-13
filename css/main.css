@@ -20,6 +20,10 @@ body
 .fs-15 {  font-size: 15px;  }
 .fs-16 {  font-size: 16px;  }
 .fs-17 {  font-size: 17px;  }
+.fs-18 {  font-size: 18px;  }
+.fs-19 {  font-size: 19px;  }
+.fs-20 {  font-size: 20px;  }
+.fs-25 {  font-size: 25px;  }
 
 .w-100 {  width: 100%;  }
 .w-80  {  width: 80%;  }
@@ -119,8 +123,99 @@ header.border-t
     font-weight: bold;
 }
 
+.blog .post-thumbnail
+{
+    margin-bottom: 10px;
+}
+
+.blog .post-thumbnail img
+{
+    height: 400px;
+    max-width: 100%;
+}
+
 /*------------- end index page -----------------------------*/
 
+
+/*------------- begin content-aside/link/gallery page ----------*/
+
+.post-aside .article
+{
+    background: #DFEDFA;
+}
+
+.post-link a
+{
+    color: white;
+}
+
+
+/*------------- end content-aside/link/gallery page -------------*/
+
+
+/*-------------  begin page page -----------*/
+
+.main-articles .page nav ul li
+{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+
+.sub-nav{
+    margin-top:10px;
+    float:right;
+    width:300px;
+}
+
+.sub-nav ul{
+    float:right;
+}
+
+.sub-nav .parent-link{
+    font-weight: bold;
+    color:#000;
+    float:left;
+    margin-right:20px;
+    padding-right:20px;
+    border-right:1px solid #009acd;
+}
+
+.sub-nav .parent-link a{
+    font-weight: bold;
+    color:#000;
+}
+
+.sub-nav .current_page_item{
+    font-weight: bold;
+}
+
+/*-------------  end page page -----------*/
+
+/*----------- begin sidebar ---------------*/
+
+.sidebar-blog ul
+{
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.sidebar-blog ul li
+{
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+.sidebar-blog h3
+{
+    margin-bottom: 20px;
+}
+
+.sidebar-blog
+
+/*----------- end sidebar ---------------*/
 
 
 

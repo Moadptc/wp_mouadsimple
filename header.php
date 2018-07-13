@@ -16,21 +16,21 @@
 </head>
 <body>
 
-<header class="bg-light py-2 border-t">
+<header class="bg-light pb-1 border-t">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6 pb-2 mt-0 pt-0">
 				<h1 class="main-title text-primary d-inline font-weight-bold">
 					<a href="<?php bloginfo('url') ?>">
 						<?php bloginfo('name') ?>
 					</a>
 				</h1>
 				<span class="fs-13 ml-2">
-				<?php bloginfo('description') ?>
-			</span>
+				    <?php bloginfo('description') ?>
+			    </span>
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-6 py-2">
 				<form class="float-right w-60" method="get"
                       action="<?php esc_url(home_url('/')) ?>">
 					<input type="text" class="form-control search-input"

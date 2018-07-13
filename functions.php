@@ -1,11 +1,79 @@
 <?php
 
-
-
 require 'class/bootstrap-navwalker.php';
 
-// add featured image
-add_theme_support('post-thumbnails');
+function mouad_theme_support()
+{
+	// add featured image
+	add_theme_support('post-thumbnails');
+
+
+	// add menu to the theme
+	register_nav_menus(
+		array(
+			'primary' => __('Navigation Bar'),
+			'footer' => __('Footer Menu')
+		)
+	);
+
+
+	// post format support
+	add_theme_support('post-formats' , array('aside', 'gallery', 'link'));
+}
+
+add_action('after_setup_theme' , 'mouad_theme_support');
+
+
+// widget Location
+function init_widgets($id)
+{
+	register_sidebar(array(
+		'name' => 'Sidebar',
+		'id' => 'sidebar',
+		'before_widget' => '<div class="card-body main-widget border-top">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>'
+	));
+
+	register_sidebar(array(
+		'name' => 'Showcase',
+		'id' => 'showcase',
+		'before_widget' => '<div class="card-body showcase">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>'
+	));
+
+	register_sidebar(array(
+		'name' => 'Box 1',
+		'id' => 'box1',
+		'before_widget' => '<div class="card-body box1">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>'
+	));
+
+	register_sidebar(array(
+		'name' => 'Box 2',
+		'id' => 'box2',
+		'before_widget' => '<div class="card-body box2">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>'
+	));
+
+	register_sidebar(array(
+		'name' => 'Box 3',
+		'id' => 'box3',
+		'before_widget' => '<div class="card-body box3">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>'
+	));
+}
+
+add_action('widgets_init','init_widgets');
 
 
 /*
@@ -66,21 +134,12 @@ add_action('wp_enqueue_scripts','mouad_add_scripts');
  *  custom menu
  */
 
-function mouad_register_costum_menu()
-{
-	register_nav_menus(
-		array(
-			'bt4-menu' => 'Navigation Bar',
-			'footer-menu' => 'Footer Menu'
-		)
-	);
-}
 
 function mouad_put_menu()
 {
 	wp_nav_menu(
 		array(
-			'theme_location' => 'bt4-menu',
+			'theme_location' => 'primary',
 			'menu_class' => 'navbar-nav',
 			'menu_id'        => 'primary-menu',
 			'container'      => false,
@@ -92,7 +151,6 @@ function mouad_put_menu()
 	);
 }
 
-add_action('init','mouad_register_costum_menu');
 
 
 function set_excerpt_length()
@@ -109,4 +167,21 @@ function mouad_excerpt_change_dots($more)
 add_filter('excerpt_more','mouad_excerpt_change_dots');
 add_filter('excerpt_length','set_excerpt_length');
 
+
+function get_top_parent(){
+	global $post;
+	if($post->post_parent){
+		$ancestors = get_post_ancestors($post->ID);
+		return $ancestors[0];
+	}
+
+	return $post->ID;
+}
+
+function page_is_parent(){
+	global $post;
+
+	$pages = get_pages('child_of='.$post->ID);
+	return count($pages);
+}
 
