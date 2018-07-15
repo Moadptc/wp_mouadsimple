@@ -12,6 +12,12 @@
 					<?php echo wpautop('Sorry, no posts were found') ?>
 				<?php endif; ?>
 
+                <div class="row main-row-comment px-4">
+                    <div class="col">
+						<?php  comments_template();  ?>
+                    </div>
+                </div>
+
 
 			</div>  <!--  main articles tag -->
 		</div>
